@@ -64,6 +64,7 @@
         <div class="head">
           <div>构件查询(10)</div>
           <div><Input search placeholder="关键词查询" /></div>
+          <i-button type="primary" @click="newitem()">新增</i-button>
         </div>
         <div class="body">
             <div class="list" v-for="item in 10">
@@ -142,7 +143,54 @@
                   </Step>
               </Steps>
           </Modal>
+
+
+          <Modal
+              v-model="showgou"
+              title="发起质量事宜"
+              @on-ok="add(true)"
+              @on-cancel="add(false)">
+              <i-form :model="addItem" :label-width="60">
+                  <Form-item label="输入框">
+                      <i-input v-model=="formItem.input" placeholder="请输入"></i-input>
+                  </Form-item>
+                  <FormItem label="问题分类">
+                      <Select v-model="formItem.select">
+                          <Option value="ces">测试</Option>
+                      </Select>
+                  </FormItem>
+                  <Form-item label="描述">
+                      <i-input type="textarea" :rows="2" v-model="formItem.input" placeholder="请输入"></i-input>
+                  </Form-item>
+                  <Form-item label="添加附件">
+                      <Upload action="#">
+                        <i-button type="ghost" icon="ios-cloud-upload-outline">上传文件</i-button>
+                      </Upload>
+                  </Form-item>
+                  <FormItem label="处理流程">
+                      <Select v-model="formItem.select">
+                          <Option value="ces">测试</Option>
+                      </Select>
+                  </FormItem>
+                  <FormItem label="优先级">
+                      <Select v-model="formItem.select">
+                          <Option value="ces">测试</Option>
+                      </Select>
+                  </FormItem>
+                  <FormItem label="截止时间">
+                      <Date-picker type="date" placeholder="更新时间"></Date-picker>
+                  </FormItem>
+                  <FormItem label="管理元素">
+                      <Select v-model="formItem.select">
+                          <Option value="ces">测试</Option>
+                      </Select>
+                  </FormItem>
+              </i-form>
+            
+          </Modal>
         </div>
+
+
   </div>
 </template>
 
@@ -155,6 +203,7 @@ export default {
   data(){
     return {
       showgou:false,
+      addnew: false,
       treedata: [
         {
           title: 'parent 1',
@@ -347,6 +396,17 @@ export default {
   methods:{
     dothing(){
       this.showgou = true;
+    },
+    newitem(){
+      this.addnew = true;
+    },
+    add(value){
+      if(value){
+        this.$Message.info('发起成功！');
+      }else {
+        this.$Message.info('取消发起！');
+      }
+      
     }
   }
 }
