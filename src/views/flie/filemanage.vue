@@ -11,6 +11,51 @@
     <div id="elfinder"></div>
     <a download="" href=""  id="downhref" target="_blank"></a>  
     <input type="hidden" id="startPathHash" value="{{startPathHash}}" />
+
+
+    <!-- 模态框 -->
+
+    <Model
+    v-model="showadd"
+    title="本地资料上传">
+        <Upload
+        multiple
+        type="drag"
+        action="#">
+            <div style="padding: 20px 0">
+                <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
+                <p>可拖放文件，文件夹到这里</p>
+            </div>
+        </Upload>
+        <div class="chosebuttin">
+            <i-button type="上传文件">上传文件</i-button>
+            <i-button type="text">上传文件夹</i-button>
+        </div>
+        <div class="title">
+            一.基础属性
+        </div>
+        <Form :model="baseItem" :label-width="80">
+            <FormItem label="名称">
+                <Input v-model="baseItem.name" placeholder="默认为上传文件名称"></Input>
+            </FormItem>
+            <FormItem label="文件类型">
+                 <Select v-model="formItem.type">
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem>
+            <FormItem label="编号">
+                <Input v-model="baseItem.number" placeholder="默认为根据文件类型数量提供"></Input>
+            </FormItem>
+            <FormItem label="专业">
+                 <Select v-model="formItem.type">
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem
+            <FormItem label="名称">
+                <Input v-model="baseItem.name" placeholder="默认为上传文件名称"></Input>
+            </FormItem>
+        </Form>
+    </Model>
     </div>
 </template>
 <script>
