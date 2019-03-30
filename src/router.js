@@ -14,12 +14,63 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/login.vue')
+    },
+    {
+      path: '/process',
+      name: 'process',
+      component: () => import('./views/process/process.vue'),
+      redirect:'/process/process-main',
+      children:[
+        {
+          path: 'process-main',
+          name: 'process-main',
+          component: () => import('./views/process/process-main.vue')
+        },
+        {
+          path: 'process-lurujindu',
+          name: 'process-lurujindu',
+          component: () => import('./views/process/lurujindu.vue')
+        },
+        {
+          path: 'process-element',
+          name: 'process-element',
+          component: () => import('./views/process/elementmanage.vue')
+        },
+      ]
+
+    },
+    {
+      path: '/file',
+      name: 'file',
+      component: () => import('./views/file.vue')
+    },
+    {
+      path: '/meeting',
+      name: 'meeting',
+      component: () => import('./views/meeting.vue')
+    },
+    {
+      path: '/projectview',
+      name: 'projectview',
+      component: () => import('./views/projectview.vue')
+    },
+    {
+      path: '/projectnotice',
+      name: 'projectnotice',
+      component: () => import('./views/projectnotice.vue')
+    },
+    {
+      path: '/quality',
+      name: 'quality',
+      component: () => import('./views/quality.vue')
+    },
+    {
+      path: '/safe',
+      name: 'safe',
+      component: () => import('./views/safe.vue')
+    },
   ]
 })

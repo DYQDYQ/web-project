@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>web-project</title>
+    <title>智慧建筑平台</title>
+    <link href="./web3d/style.min.css" rel="stylesheet" />
+    <link href="./jquery/jquery-ui.css" rel="stylesheet" />
+    <link href="./elFinder-2.1.12/css/elfinder.full.css">
+    <link href="./elFinder-2.1.12/theme.css">
+    <link media="screen" href="./elFinder-2.1.12/themes/Material/css/theme-gray.css">
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but web-project doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+    
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script src="./jquery/jquery-ui.min.js"></script>
+    <script src="./elFinder-2.1.12/elfinder.full.js"></script>
+    <script src="./elFinder-2.1.12/i18n/elfinder.zh_CN.js"></script>
+    <script src="./common/filemanager.js" type="text/javascript"></script>
+    <!-- 弹出框 -->
+    <link rel="stylesheet" type="text/css" href="./zeroModal/css/zeroModal.css">
+    <script src="./zeroModal/zeroModal.min.js" type="text/javascript"></script>
+    <!-- elFinder initialization (REQUIRED) -->
+    <script src="./common/guanlianyuansufile.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./web3d/three.min.js"></script>
+    <script src="./web3d/viewer3D.min.js"></script>
+    <script src="./web3d/LoadModel.js"></script>
   </body>
 </html>
