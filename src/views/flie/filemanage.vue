@@ -17,7 +17,9 @@
 
     <Model
     v-model="showadd"
-    title="本地资料上传">
+    title="本地资料上传"
+    @on-ok="okupload"
+    @on-cancel="cancelupload">
         <Upload
         multiple
         type="drag"
@@ -34,7 +36,7 @@
         <div class="title">
             一.基础属性
         </div>
-        <Form :model="baseItem" :label-width="80">
+        <Form :model="baseItem" :label-width="80" inline>
             <FormItem label="名称">
                 <Input v-model="baseItem.name" placeholder="默认为上传文件名称"></Input>
             </FormItem>
@@ -50,11 +52,47 @@
                  <Select v-model="formItem.type">
                     <!-- <Option value="beijing">test</Option> -->
                 </Select>
-            </FormItem
-            <FormItem label="名称">
-                <Input v-model="baseItem.name" placeholder="默认为上传文件名称"></Input>
             </FormItem>
+            <FormItem label="关联文件">
+                <Select v-model="formItem.type">
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem>
+            <FormItem label="关联元素">
+                 <Select v-model="formItem.type">
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem>
+            <FormItem label="附件">
+                 <Select v-model="formItem.type">
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem
+
         </Form>
+        <div class="title">
+            二.高级属性
+        </div>
+        <Form :model="heightItem" :label-width="80" inline>
+            <FormItem label="生效日期">
+                <DatePicker type="date" placeholder="Select date"></DatePicker>
+            </FormItem>
+            <FormItem label="责任单位">
+                 <Select>
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem>
+            <FormItem label="标签">
+                 <Select>
+                    <!-- <Option value="beijing">test</Option> -->
+                </Select>
+            </FormItem>
+            <FormItem label="关联文件">
+                <Input type="备注" :autosize="{minRows: 2,maxRows: 5}" placeholder="默认为上传文件名称"></Input>          
+            </FormItem>
+
+        </Form>
+
     </Model>
     </div>
 </template>
@@ -63,6 +101,14 @@
         data(){
             return{
 
+            }
+        },
+        methods:{
+            okupload(){
+
+            },
+            cancelupload(){
+                
             }
         }
     }
