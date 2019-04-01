@@ -50,7 +50,20 @@ export default new Router({
     {
       path: '/meeting',
       name: 'meeting',
-      component: () => import('./views/meeting.vue')
+      component: () => import('./views/meeting/meeting-main.vue'),
+      redirect:'/meeting/meetinginf',
+      children:[
+          {
+            path: 'meeting-list',
+            name: 'meeting-list',
+            component: () => import('./views/meeting/meeting-list.vue')
+          },
+          {
+              path: 'meetinginf',
+              name: 'meetinginf',
+              component: () => import('./views/meeting/meetinf.vue')
+          }
+      ]
     },
     {
       path: '/projectview',
