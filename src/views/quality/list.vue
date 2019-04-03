@@ -69,27 +69,33 @@
       <div class="right">
           <div class="head">
               <div class="title">构件查询(10)</div>
-              <div class="paixu"><img src="../../assets/img/shaixuan.png">排序</div>
+              <div class="paixu"><img src="../../assets/img/shaixuan.png" style="margin-right:5px">排序</div>
               <div class="lookfor"><Input search placeholder="关键词查询" /></div>
               <i-button type="primary" @click="newitem()">新增</i-button>
           </div>
           <div class="body">
             <div class="list" v-for="item in 7">
                  <div class="top">
-                   <div class="idname">673</div>
+                   <div class="idname">
+                       <img src="../../assets/img/level_red.png" v-if="item % 2 == 0" style="margin:0 5px">
+                       <img src="../../assets/img/level_yellow.png" v-else-if="item % 3 == 0" style="margin:0 5px">
+                       <img src="../../assets/img/level_blue.png" v-else style="margin:0 5px">
+                       673
+                   </div>
                    <div class="content">测试问题分类</div>
                  </div>
                  <div class="bottom">
                    <div class="line">处理质量整改单</div>
-                   <div class="line"><Icon type="md-person" />  潘古兵</div>
-                   <div class="line"><Icon type="md-time" />2019-03-07</div>
-                   <div class="line"><Icon type="ios-list" />无</div>
-                   <div class="show-fzr">潘古兵,邱嘉,邓英杞,王俊,陈亚楠,罗炯</div>
-                   <div class="line">2019-12-07</div>
+                   <div class="line"><img src="../../assets/img/people2.png"> 潘古兵</div>
+                   <div class="line"><img src="../../assets/img/icon_time.png">2019-03-07</div>
+                   <div class="line"><img src="../../assets/img/icon_wu.png">无</div>
+                   <div class="show-fzr"><img src="../../assets/img/icon_zhipai.png">潘古兵,邱嘉,邓英杞,王俊,陈亚楠,罗炯</div>
+                   <div class="line" style="margin-left:60px">2019-12-07</div>
                  </div>
                  <div class="do">
-                    <div class="show-do" @click="dothing(item)">操作</div>
-                    <div class="show-do" @click="dothing(item)">删除</div>
+                    <div class="show-do" @click="dothing(item)"><img src="../../assets/img/right.png"></div>
+                    <div class="show-do" @click="dothing(item)"><img src="../../assets/img/pingjia.png"></div>
+                    <div class="show-do" @click="dothing(item)"><img src="../../assets/img/delete.png"></div>
                  </div>
            </div>
         </div>
@@ -406,16 +412,16 @@ export default {
     .quality-list .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 16px;font-weight: 400;float: left;}
     .quality-list .left .saibutton{margin-top: 10px;float: right;}
     .quality-list .left .tree{text-align: left;}
-    .quality-list .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row }
-    .quality-list .left .filterform .filterlist div{width: calc(100% / 3);height:30px;line-height: 30px;font-size: 16px;text-align: center;border-radius: 3px;cursor: pointer;}
+    .quality-list .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row}
+    .quality-list .left .filterform .filterlist div{width: calc(100% / 3);height:30px;line-height: 30px;font-size: 14px;text-align: center;border-radius: 3px;cursor: pointer;}
     .quality-list .left .filterform .filterlist div:hover{background-color:#5c9dff; }
     .quality-list .left .filterform .filterlist .active {background-color: #5c9dff}
     .quality-list .right{width: calc(100% - 240px);float: right;height: 100%;background-color: #ffffff;font-size: 14px}
     .quality-list .right .head{height: 60px;text-align:left;padding: 0px 20px;background-color: #ffffff}
     .quality-list .right .head .title{display: inline-block;font-size: 18px;font-weight: 600;line-height: 60px;height: 60px;}
-    .quality-list .right .head .paixu {display:inline-block;width:60px;margin-left:50px}
-    .quality-list .right .head .lookfor {width: 200px;display: inline-block;margin-left: 100px;}
-    .quality-list .right .head button {display: inline-block;float: right;margin-top: 10px}
+    .quality-list .right .head .paixu {display:inline-block;margin-left:150px}
+    .quality-list .right .head .lookfor {width: 200px;display: inline-block;margin-left: 20px;}
+    .quality-list .right .head button {display: inline-block;float: right;margin-top: 20px}
     .quality-list .right .body {height:calc(100% - 110px);overflow-y: auto;background-color: #ffffff}
     .quality-list .right .body .list{height: 80px;padding: 10px 20px;}
     .quality-list .right .body .list:nth-child(odd){background-color: #f3f7ff}
@@ -424,8 +430,12 @@ export default {
     .quality-list .right .body .list .top .content {width: calc(100% - 70px);text-align: left;height: 30px;line-height: 30px;display: inline-block}
     .quality-list .right .body .list .bottom{padding-left: 70px;}
     .quality-list .right .body .list .bottom .line {width: calc(calc(100% - 270px) / 5);display: inline-block;vertical-align: top;}
+    .quality-list .right .body .list .bottom .line img {max-width:14px;margin-right:5px}
     .quality-list .right .body .list .bottom .show-fzr {width: 200px;display: inline-block;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+    .quality-list .right .body .list .bottom .show-fzr img{max-width:18px;margin:0 5px}
     .quality-list .right .body .list .do {width: 140px;float: right;height: 80px;display: flex;justify-content: center;align-items: center;margin-top: -40px;}
+    .quality-list .right .body .list .do .show-do {margin:0 5px}
+    .quality-list .right .body .list .do .show-do img {max-width:16px}
     .quality-list .right .page {float: right;margin-top: 10px;padding-right: 20px;margin-bottom: 5px}
 
 
