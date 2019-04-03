@@ -1,7 +1,7 @@
 <template>
-  <div class="manage">
+  <div class="manage" ref="box">
       <div class="left">
-        <div class="title">
+        <div class="all-title">
           构件筛选
           <div class="title-icon">
             <Icon type="android-funnel"></Icon>
@@ -12,7 +12,7 @@
               <div class="title">
                 选择类型状态
               </div>
-              <i-select :model.sync="model1" style="width:200px">
+              <i-select :model.sync="model1">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
               </i-select>         
           </div>
@@ -20,7 +20,7 @@
               <div class="title">
                 选择空间
               </div>
-              <i-select :model.sync="model1" style="width:200px">
+              <i-select :model.sync="model1">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
               </i-select>         
           </div>
@@ -28,49 +28,49 @@
               <div class="title">
                 构件编号
               </div>
-              <i-select :model.sync="model1" style="width:200px">
+              <i-select :model.sync="model1">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
               </i-select>         
           </div>
         </div>
-        <i-button type="primary">筛选</i-button>
+          <i-button class="saibutton" type="primary">筛选</i-button>
+        
       </div>
       <div class="right">
-        <div class="head">
+<!--         <div class="head">
           <div>构件查询</div>
           <div>导出</div>
           <div>转出</div>
-        </div>
+        </div> -->
         <div class="body">
-           <i-table border :columns="listline" :data="goulist"></i-table>
-           <Page :total="1" show-elevator></Page>
+           <i-table border :columns="listline" :data="goulist" :height="tableheight"></i-table>
+           <Page class="page" :total="1" show-elevator></Page>
         </div>
         
 
 
       </div>
 
-    <div class="model">
+    <div>
           <Modal
               v-model="showgou"
-              title="构件追踪过程">
-              <div class="head"><span>构件编号【地下一框地下结构混凝土】</span><span>类型【地下结构混凝土】</span></div>
+              title="构件追踪过程"
+              width="700"
+              >
+              <div class="model-head"><span class="line1">构件编号</span>【地下一框地下结构混凝土】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line1">类型</span>【地下结构混凝土】</div>
               <Steps :current="3" direction="vertical">
                   <Step v-for="item in 4">
-                      <Card style="width:350px">
-                        <p slot="title">
+                      <Card>
+                        <p slot="title" style="font-size: 17px">
                             支撑拆除
                         </p>
-                        <a href="#" slot="extra" @click.prevent="changeLimit">
-                            
-                        </a>
-                        <i-button type="primary" slot="extra">修改记录</i-button>
-                        <i-button type="error" slot="extra">删除记录</i-button>
-                        <div class="content">
-                            <div><span>人员：</span>李四</div>
-                            <div><span>完成百分比：</span>100%</div>
-                            <div><span>时间：</span>2019/03/21 08:30</div>
-                            <div><span>备注：</span>暂无</div>
+                        <i-button type="primary" slot="extra" size="small">修改记录</i-button>
+                        <i-button type="error" slot="extra" size="small" style="margin-left: 10px;">删除记录</i-button>
+                        <div class="model-content">
+                            <div><span class="model-content-title">人员：</span>李四</div>
+                            <div><span class="model-content-title">完成百分比：</span>100%</div>
+                            <div><span class="model-content-title">时间：</span>2019/03/21 08:30</div>
+                            <div><span class="model-content-title">备注：</span>暂无</div>
                         </div>
                     </Card>
                   </Step>
@@ -205,16 +205,38 @@ export default {
               label: '测试'
           },
       ],
-      model1:'123'
+      model1:'123',
+      tableheight:0,
     }
   },
   methods:{
     show(){
       this.showgou = true;
     }
+  },
+  mounted(){
+    this.tableheight = this.$refs.box.clientHeight - 100;
   }
 }
 </script>
 <style scoped>
-    .manage {padding: 22px;background-color: #dae3ef;height: 100%}
+    .manage {padding: 22px;background-color: #dae3ef;height: 100%;}
+    .manage .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;}
+    .manage .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
+    .manage .left .filterform .list{text-align: left;}
+    .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 17px;font-weight: 400;float: left;}
+    .manage .left .saibutton{margin-top: 10px;float: right;}
+    .manage .right {width: calc(100% - 240px);height: 100%;background-color: #ffffff;float: right;}
+    .manage .right .body{width: 100%;height: 100%;}
+    .manage .right .body .page{float: right;margin-top: 10px;padding-right: 20px}
+    .model-head{font-size: 16px;}
+    .model-head .line1 {font-weight: 600;}
+    .model-content {height: 40px;}
+    .model-content div {width: 50%;float: left;height:20px;line-height: 20px;}
+    .model-content div .model-content-title {font-weight: 600;}
+</style>
+<style>
+  .manage .right .body .ivu-table th {background-color: #cddbf1;font-size: 16px;}
+  .manage .right .body .ivu-table .ivu-table-tbody .ivu-table-row:nth-child(even) td {background-color: #f3f7ff}
+  .ivu-modal-header-inner {font-size: 18px;font-weight: 600}
 </style>

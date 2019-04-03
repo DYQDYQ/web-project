@@ -92,7 +92,7 @@
 
 
 <script>
-    import $ from 'jquery'
+    // import $ from 'jquery'
     //日期格式化
     window.year = new Date().getFullYear();
     window.month = new Date().getMonth();
@@ -632,33 +632,33 @@
 </script>
 <style>
     .meeting {width:100%;height:100%;padding: 22px;background-color: #dae3ef;min-width:1000px;position: relative}
-    .btn {position:absolute;right:10px;top:-45px;z-index:1}
-    .up {height:60%;background-color: #fff}
-    .bottom {height:40%;border-top:10px solid #dae3ef;overflow-y: auto}
-    .calendar {position: relative;width:400px;height:100%;display: inline-block;}
-    .boxshaw {width:100%;font-size:13px;position: absolute;display: inline-block;top:50%;left:50%;transform:translate(-50%,-50%)}
-    .schedule-hd {display: flex;justify-content: space-between;padding:0 15px;margin-bottom: 20px;}
-    .today {flex:1;text-align:center;}
-    .ul-box {overflow: hidden;}
+    .meeting .btn {position:absolute;right:10px;top:-45px;z-index:1}
+    .meeting .up {height:60%;background-color: #fff}
+    .meeting .bottom {height:40%;border-top:10px solid #dae3ef;overflow-y: auto}
+    .meeting .calendar {position: relative;width:400px;height:100%;display: inline-block;}
+    .meeting .boxshaw {width:100%;font-size:13px;position: absolute;display: inline-block;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .meeting .schedule-hd {display: flex;justify-content: space-between;padding:0 15px;margin-bottom: 20px;}
+    .meeting .today {flex:1;text-align:center;}
+    .meeting .ul-box {overflow: hidden;}
     ul {list-style:none;}
-    .ul-box >li {float:left;width:14.28%;text-align: center;padding:5px 0;}
-    .other-month {color:#999999;}
-    .current-month {color: #333333;}
-    .dayStyle {width:35px;height:35px;border-radius: 50%;text-align: center;line-height: 35px;display: inline-block;cursor: pointer;}
-    .current-month > .dayStyle:hover {background: rgb(153,153,153);color:#ffffff;}
-    .today-flag {background:#4A9BFF;color:#ffffff;}
-    .arrow {cursor: pointer;font-size:16px;}
-    .weekclass {width:calc((100% - 400px)/7);height:100%;display: inline-block;padding-top:30px;vertical-align: top;border-left:1px solid #cccccc;cursor:pointer;}
-    .weekday {height:60px;width:100%;}
-    .weekday .day {font-size: 22px;height: 22px;line-height: 22px;width: 100%;text-align: center;color: #999999;}
-    .weekday .week {font-size: 22px;width: 100%;height: 22px;line-height: 22px;text-align: center;color: #999999;}
-    .checkit {position:relative;}
-    .checkit::after {position: absolute;content:"";top:0px;width:100%;height:0px;border-top:8px solid #4A9BFF;display: block;}
-    .week-box {position: relative;}
-    .week-box:hover::after {display:block;}
-    .week-box::after {position: absolute;content:"";top:0px;width:100%;height:0px;border-top:8px solid #4A9BFF;display: none;}
-    .lists .item{margin-bottom: 30px;text-align: center;}
-    .itemtime {display: block;}
+    .meeting .ul-box >li {float:left;width:14.28%;text-align: center;padding:5px 0;}
+    .meeting .other-month {color:#999999;}
+    .meeting .current-month {color: #333333;}
+    .meeting .dayStyle {width:35px;height:35px;border-radius: 50%;text-align: center;line-height: 35px;display: inline-block;cursor: pointer;}
+    .meeting .current-month > .dayStyle:hover {background: rgb(153,153,153);color:#ffffff;}
+    .meeting .today-flag {background:#4A9BFF;color:#ffffff;}
+    .meeting .arrow {cursor: pointer;font-size:16px;}
+    .meeting .weekclass {width:calc((100% - 400px)/7);height:100%;display: inline-block;padding-top:30px;vertical-align: top;border-left:1px solid #cccccc;cursor:pointer;}
+    .meeting .weekday {height:60px;width:100%;}
+    .meeting .weekday .day {font-size: 22px;height: 22px;line-height: 22px;width: 100%;text-align: center;color: #999999;}
+    .meeting .weekday .week {font-size: 22px;width: 100%;height: 22px;line-height: 22px;text-align: center;color: #999999;}
+    .meeting .checkit {position:relative;}
+    .meeting .checkit::after {position: absolute;content:"";top:0px;width:100%;height:0px;border-top:8px solid #4A9BFF;display: block;}
+    .meeting .week-box {position: relative;}
+    .meeting .week-box:hover::after {display:block;}
+    .meeting .week-box::after {position: absolute;content:"";top:0px;width:100%;height:0px;border-top:8px solid #4A9BFF;display: none;}
+    .meeting .lists .item{margin-bottom: 30px;text-align: center;}
+    .meeting .itemtime {display: block;}
 
 
 </style>

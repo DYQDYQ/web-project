@@ -1,44 +1,44 @@
 <template>
     <div class="quality-chart">
         <div class="sort">
-            <div class="head">
-                <div class="title">问题分类统计</div>
-                <i-button type="primary">一级分类</i-button>
-                <i-button type="primary">二级分类</i-button>
+            <div class="chart-title">问题分类统计</div>
+            <div class="chart-button">
+                <i-button type="primary" size="small">一级分类</i-button>
+                <i-button type="primary" size="small">二级分类</i-button>
             </div>
-            <chart :options="sort" style="width:100%;height:100%"></chart>
+            <chart  class="issue1" :options="sort"></chart>
         </div>
-        <div class="time">
+        <div class="normal">
             <div class="head">
-                <div class="title">问题次数统计</div>
+                <div class="chart-title">问题次数统计</div>
             </div>
             <chart :options="time" style="width:100%;height:100%"></chart>
         </div>
-        <div class="noclose">
+        <div class="normal">
             <div class="head">
-                <div class="title">当前未关闭问题统计</div>
+                <div class="chart-title">当前未关闭问题统计</div>
             </div>
             <chart :options="noclose" style="width:100%;height:100%"></chart>
         </div>
-        <div class="changetime">
+        <div class="normal">
             <div class="head">
-                <div class="title">各专业按时整改率统计</div>
+                <div class="chart-title">各专业按时整改率统计</div>
             </div>
             <chart :options="changetime" style="width:100%;height:100%"></chart>
         </div>
-        <div class="grade">
+        <div class="normal">
             <div class="head">
-                <div class="title">问题等级统计</div>
+                <div class="chart-title">问题等级统计</div>
             </div>
             <chart :options="grade" style="width:100%;height:100%"></chart>
         </div>
     </div>
 </template>
 <script>
-    import chart from 'vue-echarts'
+    import echarts from 'vue-echarts'
     export default{
         components:{
-            chart
+            chart:echarts
         },
         data(){
             return{
@@ -49,6 +49,12 @@
                     },
                     yAxis: {
                         type: 'value'
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '2%',
+                        bottom: '3%',
+                        containLabel: true
                     },
                     series: [{
                         data: [4, 2,3, 1, 0, 0, 0,5,4, 2,3, 1, 0, 0, 0,4, 2,3, 1, 0, 0],
@@ -85,6 +91,12 @@
                     yAxis: {
                         type: 'value'
                     },
+                    grid: {
+                        left: '6%',
+                        right: '3%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
                     series: [{
                         data: [2, 3, 5, 8, 1, 2, 5],
                         type: 'line',
@@ -98,6 +110,12 @@
                     },
                     yAxis: {
                         type: 'value'
+                    },
+                    grid: {
+                        left: '6%',
+                        right: '3%',
+                        bottom: '3%',
+                        containLabel: true
                     },
                     series: [{
                         data: [15],
@@ -134,8 +152,14 @@
                     yAxis: {
                         type: 'value'
                     },
+                    grid: {
+                        left: '6%',
+                        right: '3%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
                     series: [{
-                        data: [20%],
+                        data: ['20%'],
                         type: 'bar',
                         itemStyle: {
                             normal: {
@@ -163,7 +187,16 @@
                 },
                 grade:{
                     legend: {
-                        data:['轻微','一般','严重']
+                        data:['轻微','一般','严重'],
+                        align: 'right',
+                        right: 20,
+                        top:20
+                    },
+                    grid: {
+                        left: '6%',
+                        right: '3%',
+                        bottom: '3%',
+                        containLabel: true
                     },
                     xAxis : [
                         {
@@ -199,3 +232,12 @@
 
     }
 </script>
+<style scoped>
+    .quality-chart{position: absolute;top: 160px;left: 0px;bottom: 0px;right: 0px;}
+    .quality-chart .normal{width: 50%;height:  calc(50vh - 108px);display: inline-block;vertical-align: top; position: relative; margin-bottom: 20px}
+    .quality-chart .sort{  width: 100%;height:  calc(50vh - 108px); position: relative;  margin-bottom: 20px}
+    .chart-button{  position: absolute;  right: 20px;  top: 15px; z-index: 10;}
+    .chart-button button {margin-left: 10px;}
+    .chart-title{ position: absolute;  left: 60px;  top: 15px; z-index: 10; background: url('../../assets/img/chart-head.png') no-repeat;width: 275px;height: 30px;background-size: 100% auto;line-height: 30px;font-size: 17px;font-weight: 400;text-align: left;padding-left: 10px;color: #ffffff}
+    .quality-chart .sort .issue1{  position: absolute;bottom: 0px; top: 15px;  width: 100%;}
+</style>

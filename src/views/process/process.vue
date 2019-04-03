@@ -1,7 +1,7 @@
 <template>
   <div class="process">
     <div class="tab">
-        <div class="processroute" v-for="route in routelist" @click="choseroute(route.name)">
+        <div class="processroute" v-for="route in routelist" @click="choseroute(route)" :class="route.state ? 'choseitem' : '' ">
             {{route.title}}
         </div>
     </div>
@@ -13,32 +13,41 @@
 
 <script>
 import chart from 'vue-echarts'
-
 export default {
   components: {
-    chart
+    chart,
   },
   data(){
     return {
         routelist:[
             {
                 title:'首页',
-                name:'/process/process-main'
+                name:'/process/process-main',
+                state:true
             },
             {
                 title:'进度录入',
-                name:'/process/process-lurujindu'
+                name:'/process/process-lurujindu',
+                state:false
             },
             {
                 title:'构件查询',
-                name:'/process/process-element'
+                name:'/process/process-element',
+                state:false
             },
         ]
     }
   },
   methods:{
-    choseroute(name){
-        this.$router.push(name)
+    choseroute(route){
+        this.$router.push(route.name);
+        this.routelist.forEach(value => {
+            value.state = false;
+            if(route.name == value.name){
+                value.state = true;
+            }
+        })
+
     }
   }
 }
@@ -47,5 +56,6 @@ export default {
     .process {height: calc(100% - 100px)}
     .tab {width: 100%;height: 60px;}
     .body {width:100%;height:calc(100% - 60px);}
-    .processroute {height: 60px;line-height: 60px;float: left;width: 100px;font-size: 16px;cursor: pointer;}
+    .processroute {float:left;height: 60px;line-height: 60px; width: 100px;font-size: 16px;cursor: pointer;}
+    .choseitem {border-bottom: 3px solid #418DE9;box-sizing: border-box; }
 </style>

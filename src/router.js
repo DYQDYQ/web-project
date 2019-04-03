@@ -45,7 +45,20 @@ export default new Router({
     {
       path: '/file',
       name: 'file',
-      component: () => import('./views/file.vue')
+      component: () => import('./views/file/main.vue'),
+      redirect:'/file/filemanage',
+      children:[
+          {
+            path: 'filemanage',
+            name: 'filemanage',
+            component: () => import('./views/file/filemanage.vue')
+          },
+          {
+              path: 'file-look',
+              name: 'file-look',
+              component: () => import('./views/file/file-look.vue')
+          }
+      ]
     },
     {
       path: '/meeting',
@@ -78,7 +91,20 @@ export default new Router({
     {
       path: '/quality',
       name: 'quality',
-      component: () => import('./views/quality.vue')
+      component: () => import('./views/quality/main.vue'),
+      redirect:'/quality/quality-list',
+      children:[
+          {
+            path: 'quality-list',
+            name: 'quality-list',
+            component: () => import('./views/quality/list.vue')
+          },
+          {
+              path: 'quality-chart',
+              name: 'quality-chart',
+              component: () => import('./views/quality/quality-chart.vue')
+          }
+      ]
     },
     {
       path: '/safe',

@@ -1,15 +1,14 @@
 <template>
-  <div class="manage">
+  <div class="quality-list">
       <div class="left">
-        <div class="title">
+        <div class="all-title">
           流程筛选
           <div class="title-icon">
             <Icon type="android-funnel"></Icon>
           </div>
         </div>
         <div class="tree">
-          <Tree :data="treedata"></Tree>
-          <Tree :data="treedata"></Tree>
+          <Tree :data="treedata" show-checkbox></Tree>
         </div>
         <div class="filterform">
           <div class="list">
@@ -57,28 +56,30 @@
                <Date-picker type="date" placeholder="截止时间" style="width: 200px"></Date-picker>        
           </div>
         </div>
-        <i-button type="primary">确认</i-button>
-        <i-button type="text">重置</i-button>
+          <i-button style="float: right;margin-top: 20px;margin-left: 10px">重置</i-button>
+          <i-button type="primary" style="float: right;margin-top: 20px;">确认</i-button>
+          
+        
       </div>
       <div class="right">
         <div class="head">
-          <div>构件查询(10)</div>
-          <div><Input search placeholder="关键词查询" /></div>
+          <div class="title">构件查询(10)</div>
+          <div class="lookfor"><Input search placeholder="关键词查询" /></div>
           <i-button type="primary" @click="newitem()">新增</i-button>
         </div>
         <div class="body">
-            <div class="list" v-for="item in 10">
+            <div class="list" v-for="item in 7">
                  <div class="top">
                    <div class="idname">673</div>
                    <div class="content">测试问题分类</div>
                  </div>
                  <div class="bottom">
-                   <div class="title_now">处理质量整改单</div>
-                   <div class="show-fqr">潘古兵</div>
-                   <div class="show-time">2019-03-07</div>
-                   <div class="show-gj">无</div>
+                   <div class="line">处理质量整改单</div>
+                   <div class="line"><Icon type="md-person" />  潘古兵</div>
+                   <div class="line"><Icon type="md-time" />2019-03-07</div>
+                   <div class="line"><Icon type="ios-list" />无</div>
                    <div class="show-fzr">潘古兵,邱嘉,邓英杞,王俊,陈亚楠,罗炯</div>
-                   <div class="time">2019-12-07</div>
+                   <div class="line">2019-12-07</div>
                  </div>
                  <div class="do">
                     <div class="show-do" @click="dothing(item)">操作</div>
@@ -86,9 +87,9 @@
                  </div>
            </div>
 
-           <Page :total="1" show-elevator></Page>
+           
         </div>
-        
+        <Page class="page" :total="1" show-elevator></Page>
 
 
       </div>
@@ -96,40 +97,41 @@
     <div class="model">
           <Modal
               v-model="showgou"
-              title="事宜处理">
-              <div class="head">
+              title="事宜处理"
+              width="700">
+              <div class="model-padding dothing-head">
                 <div class="line">
                   <div class="title">编号</div>
                   <div class="content">ZL-1903072027-673</div>
                 </div>
                 <div class="line2" v-for="item in testlist">
-                  <div class="title">发起人</div>
-                  <div class="content">ZL-1903072027-673</div>
+                  <div class="title">{{item.name}}</div>
+                  <div class="content">{{item.content}}</div>
                 </div>
                 <div class="line">
                   <div class="title">处理意见</div>
-                  <div class="content">
+                  <div class="content-add">
                     <i-input type="textarea" :rows="2" placeholder="请输入"></i-input>
                   </div>
                 </div>
                 <div class="line">
                   <div class="title">附件</div>
-                  <div class="content">
+                  <div class="content-add">
                     <Upload action="#">
-                        <i-button type="ghost" icon="ios-cloud-upload-outline">上传文件</i-button>
+                        <Button icon="ios-cloud-upload-outline">上传文件</Button >
                     </Upload>
                   </div>
                 </div>
-                <div>
+                <div class="deal-button">
                   <i-button type="primary">确认</i-button>
                   <i-button type="text">取消</i-button>
                 </div>
               </div>
-              <div>事件处理进度</div>
-              <Steps :current="0" direction="vertical">
+              <div class="model-padding deal-list-head">事件处理进度</div>
+              <Steps class="model-padding deal-list" :current="0" direction="vertical">
                   <Step v-for="item in 1">
-                      <Card style="width:350px">
-                        <p slot="title">
+                      <Card>
+                        <p slot="title" style="text-align:center;font-size: 17px">
                             支撑拆除
                         </p>
                         <div class="content">
@@ -146,21 +148,21 @@
 
 
           <Modal
-              v-model="showgou"
+              v-model="addnew"
               title="发起质量事宜"
               @on-ok="add(true)"
               @on-cancel="add(false)">
-              <i-form :model="addItem" :label-width="60">
+              <Form  :model="addItem" :label-width="60">
                   <Form-item label="输入框">
-                      <i-input v-model=="formItem.input" placeholder="请输入"></i-input>
+                      <i-input placeholder="请输入"></i-input>
                   </Form-item>
                   <FormItem label="问题分类">
-                      <Select v-model="formItem.select">
+                      <Select >
                           <Option value="ces">测试</Option>
-                      </Select>
+                      </Select >
                   </FormItem>
                   <Form-item label="描述">
-                      <i-input type="textarea" :rows="2" v-model="formItem.input" placeholder="请输入"></i-input>
+                      <i-input type="textarea" :rows="2" placeholder="请输入"></i-input>
                   </Form-item>
                   <Form-item label="添加附件">
                       <Upload action="#">
@@ -168,12 +170,12 @@
                       </Upload>
                   </Form-item>
                   <FormItem label="处理流程">
-                      <Select v-model="formItem.select">
+                      <Select>
                           <Option value="ces">测试</Option>
                       </Select>
                   </FormItem>
                   <FormItem label="优先级">
-                      <Select v-model="formItem.select">
+                      <Select>
                           <Option value="ces">测试</Option>
                       </Select>
                   </FormItem>
@@ -181,15 +183,14 @@
                       <Date-picker type="date" placeholder="更新时间"></Date-picker>
                   </FormItem>
                   <FormItem label="管理元素">
-                      <Select v-model="formItem.select">
+                      <Select>
                           <Option value="ces">测试</Option>
                       </Select>
                   </FormItem>
-              </i-form>
+              </Form >
             
           </Modal>
         </div>
-
 
   </div>
 </template>
@@ -203,42 +204,28 @@ export default {
   data(){
     return {
       showgou:false,
+      showadd:false,
       addnew: false,
+      addItem:{},
       treedata: [
         {
-          title: 'parent 1',
+          title: '161监理-质量整改单',
           expand: true,
           selected: true,
           children: [
               {
-                  title: 'parent 1-1',
+                  title: '发起质量整改单',
                   expand: true,
-                  children: [
-                      {
-                          title: 'leaf 1-1-1',
-                          disabled: true
-                      },
-                      {
-                          title: 'leaf 1-1-2'
-                      }
-                  ]
+                  
               },
               {
-                  title: 'parent 1-2',
-                  expand: true,
-                  children: [
-                      {
-                          title: 'leaf 1-2-1',
-                          checked: true
-                      },
-                      {
-                          title: 'leaf 1-2-1'
-                      }
-                  ]
+                  title: '处理质量整改单',
+                  expand: false,
+                  
               }
           ]
         }
-      ]
+      ],
       listline:[
         {
           title: '构件编号',
@@ -412,5 +399,45 @@ export default {
 }
 </script>
 <style scoped>
-    .manage {padding: 22px;background-color: #dae3ef;height: 100%}
+    .quality-list {padding: 22px;background-color: #dae3ef;height: 100%;text-align: left;}
+    .quality-list .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;overflow-y: auto;}
+    .quality-list .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
+    .quality-list .left .filterform .list{text-align: left;}
+    .quality-list .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 17px;font-weight: 400;float: left;}
+    .quality-list .left .saibutton{margin-top: 10px;float: right;}
+    .quality-list .left .tree{text-align: left;}
+    .quality-list .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row }
+    .quality-list .left .filterform .filterlist div{width: calc(100% / 3);height:30px;line-height: 30px;font-size: 16px;text-align: center;border-radius: 3px;cursor: pointer;}
+    .quality-list .left .filterform .filterlist div:hover{background-color:#5c9dff; }
+    .quality-list .left .filterform .filterlist .active {background-color: #5c9dff}
+    .quality-list .right{width: calc(100% - 240px);float: right;height: 100%;background-color: #ffffff;font-size: 14px}
+    .quality-list .right .head{height: 60px;text-align:left;padding: 0px 20px;background-color: #ffffff}
+    .quality-list .right .head .title{display: inline-block;font-size: 18px;font-weight: 600;line-height: 60px;height: 60px;}
+    .quality-list .right .head .lookfor {width: 200px;display: inline-block;margin-left: 50px;}
+    .quality-list .right .head button {display: inline-block;float: right;margin-top: 10px}
+    .quality-list .right .body {height:calc(100% - 110px);overflow-y: auto;background-color: #ffffff}
+    .quality-list .right .body .list{height: 80px;padding: 10px 20px;}
+    .quality-list .right .body .list:nth-child(odd){background-color: #f3f7ff}
+    .quality-list .right .body .list .top,.bottom {height: 30px;line-height: 30px;text-align: left;width: calc(100% - 140px);display: inline-block;}
+    .quality-list .right .body .list .top .idname {width: 70px;text-align: left;height: 30px;line-height: 30px;display: inline-block;vertical-align: top;}
+    .quality-list .right .body .list .top .content {width: calc(100% - 70px);text-align: left;height: 30px;line-height: 30px;display: inline-block}
+    .quality-list .right .body .list .bottom{padding-left: 70px;}
+    .quality-list .right .body .list .bottom .line {width: calc(calc(100% - 270px) / 5);display: inline-block;vertical-align: top;}
+    .quality-list .right .body .list .bottom .show-fzr {width: 200px;display: inline-block;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+    .quality-list .right .body .list .do {width: 140px;float: right;height: 80px;display: flex;justify-content: center;align-items: center;margin-top: -40px;}
+    .quality-list .right .page {float: right;margin-top: 10px;padding-right: 20px;margin-bottom: 5px}
+
+
+    /*事宜处理*/
+    .dothing-head .line {height: 60px;line-height: 60px;width: 100%;padding: 0px 20px;}
+    .dothing-head .line .title {width: 60px;height: 60px;line-height: 60px;display: inline-block;vertical-align: top;}
+    .dothing-head .line .content {width: calc(100% - 60px);height: 30px;line-height: 30px;display: inline-block;vertical-align: middle;background: #dcdee2;border-radius: 5px;padding-left: 5px;}
+    .dothing-head .line2 {height: 60px;line-height: 60px;width: 50%;display: inline-block;vertical-align: top;padding: 0px 20px;}
+    .dothing-head .line2 .title {width: 60px;height: 60px;line-height: 60px;display: inline-block;vertical-align: top;}
+    .dothing-head .line2 .content {width: calc(100% - 60px);height: 30px;line-height: 30px;display: inline-block;vertical-align: middle;background: #dcdee2;border-radius: 5px;padding-left: 5px;}
+    .dothing-head .line .content-add {width: calc(100% - 60px);height: 30px;line-height: 30px;display: inline-block;vertical-align: middle;}
+    .deal-list-head {padding: 0px 40px;width: 100%;font-size: 17px;font-weight: 600;height: 40px;line-height: 40px;}
+    .deal-list .content div{display: inline-block;height: 30px;line-height: 30px;vertical-align: top;width: 50%;font-weight:600;}
+    .deal-button {text-align:center;}
+    .model-padding {padding: 0px 20px;}
 </style>

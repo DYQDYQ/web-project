@@ -117,7 +117,7 @@
 
 
 <script>
-  import $ from 'jquery'
+  // import $ from 'jquery'
   export default {
       name: 'projectview',
       data(){
@@ -203,22 +203,22 @@
 </script>
 <style>
   .projectview {padding: 22px;background-color: #dae3ef;height: calc(100% - 100px);}
-  .content {width:100%;height:100%;background-color: #ffffff}
-  .content-left {width:43%;height:100%;float:left;box-shadow: 0px 0px 10px #ddd;padding:5px 5px 0px 5px;}
-  .content-right {width:57%;height:100%;float:right;padding:5px;box-shadow: 0px 0px 10px #ddd;}
-  .left-top {height: 40%;min-height:150px;width: 100%;margin-bottom: 10px;box-shadow: 0px 0px 10px #ddd;padding: 0px;text-align: left}
-  .left-bottom {height:calc(60% - 10px);min-height:calc(60% - 150px);width: 100%;box-shadow: 0px 0px 10px #ddd;}
-  .title {height:60px;line-height:60px;font-weight:700;padding-left:10px;font-size:15px;border-bottom: 1px solid #eeeeee;}
-  #introtable {width:100%;height:100%;}
+  .projectview .content {width:100%;height:100%;background-color: #ffffff}
+  .projectview .content-left {width:43%;height:100%;float:left;box-shadow: 0px 0px 10px #ddd;padding:5px 5px 0px 5px;}
+  .projectview .content-right {width:57%;height:100%;float:right;padding:5px;box-shadow: 0px 0px 10px #ddd;}
+  .projectview .left-top {height: 40%;min-height:150px;width: 100%;margin-bottom: 10px;box-shadow: 0px 0px 10px #ddd;padding: 0px;text-align: left}
+  .projectview .left-bottom {height:calc(60% - 10px);min-height:calc(60% - 150px);width: 100%;box-shadow: 0px 0px 10px #ddd;}
+  .projectview .title {height:60px;line-height:60px;font-weight:700;padding-left:10px;font-size:15px;border-bottom: 1px solid #eeeeee;}
+  .projectview #introtable {width:100%;height:100%;}
   tr:nth-child(odd) {background-color:#F4F9FF;}
-  .table-content {width:100%;height:100%;overflow-y: auto;}
-  .tb_line {width: 100%;height: 30px;}
-  .line_o {font-weight:600;width: 20%;height: 30px;padding: 0px 18px;color: #333333;font-size:13px}
-  .line_t {width: 30%;color:#333333a6;font-size:13px;}
-  .linerowspan {width: 6%;text-align: center;color:#333333;font-weight:600;background-color:#F4F9FF;}
+  .projectview .table-content {width:100%;height:100%;overflow-y: auto;}
+  .projectview .tb_line {width: 100%;height: 30px;}
+  .projectview .line_o {font-weight:600;width: 20%;height: 30px;padding: 0px 18px;color: #333333;font-size:13px}
+  .projectview .line_t {width: 30%;color:#333333a6;font-size:13px;}
+  .projectview .linerowspan {width: 6%;text-align: center;color:#333333;font-weight:600;background-color:#F4F9FF;}
   /*地图提示框*/
-  .info{width: 250px;height: auto;border: 1px solid #cdcbcb;border-radius: 10px;padding: 5px 0px 10px 0px;background-color: #ffffff;}
-  .info:after{content: "";width: 20px;height: 20px;display: block;position: absolute;background: url("http://webapi.amap.com/images/sharp.png") no-repeat;background-size: 100% auto;left: calc(50% - 10px);bottom: -18px;}
-  .info-top{text-align: left;font-size: 16px;height: 30px;line-height: 30px;font-weight: 800;display: -webkit-box;overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:1;margin-bottom: 5px;-webkit-box-orient: vertical;border-bottom: 1px solid #cdcbcb;padding: 0px 10px;}
-  .info-middle {text-align: left;font-size: 12px;color: #333232;height: 36px;overflow-y: auto;padding: 0px 10px;}
+  .projectview .info{width: 250px;height: auto;border: 1px solid #cdcbcb;border-radius: 10px;padding: 5px 0px 10px 0px;background-color: #ffffff;}
+  .projectview .info:after{content: "";width: 20px;height: 20px;display: block;position: absolute;background: url("http://webapi.amap.com/images/sharp.png") no-repeat;background-size: 100% auto;left: calc(50% - 10px);bottom: -18px;}
+  .projectview .info-top{text-align: left;font-size: 16px;height: 30px;line-height: 30px;font-weight: 800;display: -webkit-box;overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:1;margin-bottom: 5px;-webkit-box-orient: vertical;border-bottom: 1px solid #cdcbcb;padding: 0px 10px;}
+  .projectview .info-middle {text-align: left;font-size: 12px;color: #333232;height: 36px;overflow-y: auto;padding: 0px 10px;}
 </style>
