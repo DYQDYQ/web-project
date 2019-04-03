@@ -3,9 +3,10 @@
       <div class="left">
         <div class="all-title">
           类型筛选
-          <div class="title-icon">
-            <Icon type="android-funnel"></Icon>
-          </div>
+            <img src="../../assets/img/zhankai.png" style="float:right;padding-top:20px;cursor:pointer;">
+            <div class="title-icon">
+                <Icon type="android-funnel"></Icon>
+            </div>
         </div>
         <div class="tree">
           <Tree :data="treedata" show-checkbox></Tree>
@@ -13,7 +14,7 @@
         <div class="filterform">
           <div class="list">
               <div class="title">
-                专业
+                <img src="../../assets/img/icon_status.png" style="max-width:14px;margin-right:5px">专业
               </div>
               <i-select :model.sync="model1" style="width:200px">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
@@ -21,7 +22,7 @@
           </div>
           <div class="list">
               <div class="title">
-                空间
+                  <img src="../../assets/img/icon_kongjian.png" style="max-width:14px;margin-right:5px">空间
               </div>
               <i-select :model.sync="model1" style="width:200px">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
@@ -29,7 +30,7 @@
           </div>
           <div class="list">
               <div class="title">
-                责任单位
+                  <img src="../../assets/img/danwei.png" style="max-width:14px;margin-right:5px">责任单位
               </div>
               <i-select :model.sync="model1" style="width:200px">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
@@ -37,13 +38,13 @@
           </div>
           <div class="list">
               <div class="title">
-                生效时间
+                <img src="../../assets/img/time2.png" style="max-width:14px;margin-right:5px">生效时间
               </div>
                <Date-picker type="date" placeholder="创建时间" style="width: 200px"></Date-picker>        
           </div>
           <div class="list">
               <div class="title">
-                标签
+                <img src="../../assets/img/biaoqian.png" style="max-width:14px;margin-right:5px">标签
               </div>
               <i-select :model.sync="model1" style="width:200px">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
@@ -57,7 +58,7 @@
       </div>
       <div class="right">
         <div class="head">
-          <div class="title"><Checkbox>全选</Checkbox><span><Icon type="ios-funnel" />排序</span></div>
+          <div class="title"><Checkbox>全选</Checkbox><span><img src="../../assets/img/shaixuan.png" style="max-width:12px;margin-right:5px;cursor: pointer;margin-left: 15px;vertical-align: middle">排序</span></div>
           <div class="lookfor"><Input search placeholder="关键词查询" /></div>
           <i-button type="primary">导出</i-button>
           <i-button type="primary"  @click="newitem()" style="margin-right: 10px">新增</i-button>
@@ -385,7 +386,7 @@ export default {
     .manage .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;overflow-y: auto;border-right: 1px solid #c5c8ce}
     .manage .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
     .manage .left .filterform .list{text-align: left;}
-    .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 17px;font-weight: 400;float: left;}
+    .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 16px;font-weight: 400;float: left;}
     .manage .left .saibutton{margin-top: 10px;float: right;}
     .manage .left .tree{text-align: left;}
     .manage .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row }
@@ -394,7 +395,7 @@ export default {
     .manage .left .filterform .filterlist .active {background-color: #5c9dff}
     .manage .right{width: calc(100% - 240px);float: right;height: 100%;background-color: #ffffff;font-size: 14px}
     .manage .right .head{height: 60px;text-align:left;padding: 0px 30px;background-color: #ffffff}
-    .manage .right .head .title{display: inline-block;font-size: 16px;line-height: 60px;height: 60px;}
+    .manage .right .head .title{display: inline-block;font-size: 14px;line-height: 60px;height: 60px;}
     .manage .right .head .lookfor {width: 200px;display: inline-block;margin-left: 50px;}
     .manage .right .head button {display: inline-block;float: right;margin-top: 10px}
     .manage .right .body {height:calc(100% - 110px);overflow-y: auto;background-color: #ffffff}

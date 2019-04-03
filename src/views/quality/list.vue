@@ -3,7 +3,7 @@
       <div class="left">
         <div class="all-title">
             流程筛选
-            <img src="../../assets/img/zhankai.png" style="float:right;padding-top:20px">
+            <img src="../../assets/img/zhankai.png" style="float:right;padding-top:20px;cursor:pointer;">
             <div class="title-icon">
                 <Icon type="android-funnel"></Icon>
             </div>
@@ -14,7 +14,7 @@
         <div class="filterform">
           <div class="list">
               <div class="title">
-                <img src="../../assets/img/levels.png" alt="" style="width:17px">
+                <img src="../../assets/img/levels.png" alt="" style="max-width:17px">
                   优先级
               </div>
               <div class="filterlist">
@@ -25,7 +25,7 @@
           </div>
           <div class="list">
               <div class="title">
-                  <img src="../../assets/img/peoples.png" alt="" style="width:18px">
+                  <img src="../../assets/img/peoples.png" alt="" style="max-width:17px">
                 负责方
               </div>
               <i-select :model.sync="model1" style="width:200px">
@@ -34,7 +34,7 @@
           </div>
           <div class="list">
               <div class="title">
-                  <img src="../../assets/img/people.png" alt="" style="width:13px">
+                  <img src="../../assets/img/people.png" alt="" style="max-width:12px">
                   发起人
               </div>
               <i-select :model.sync="model1" style="width:200px">
@@ -43,21 +43,21 @@
           </div>
           <div class="list">
               <div class="title">
-                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
+                  <img src="../../assets/img/time2.png" alt="" style="max-width:15px">
                 创建时间
               </div>
               <Date-picker type="date" placeholder="创建时间" style="width: 200px"></Date-picker>
           </div>
           <div class="list">
               <div class="title">
-                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
+                  <img src="../../assets/img/time2.png" alt="" style="max-width:15px">
                 更新时间
               </div>
               <Date-picker type="date" placeholder="更新时间" style="width: 200px"></Date-picker>
           </div>
           <div class="list">
               <div class="title">
-                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
+                  <img src="../../assets/img/time2.png" alt="" style="max-width:15px">
                 截止时间
               </div>
               <Date-picker type="date" placeholder="截止时间" style="width: 200px"></Date-picker>
@@ -69,7 +69,7 @@
       <div class="right">
           <div class="head">
               <div class="title">构件查询(10)</div>
-              <div class="paixu"><img src="../../assets/img/shaixuan.png" style="margin-right:5px">排序</div>
+              <div class="paixu"><img src="../../assets/img/shaixuan.png" style="margin-right:5px;cursor: pointer">排序</div>
               <div class="lookfor"><Input search placeholder="关键词查询" /></div>
               <i-button type="primary" @click="newitem()">新增</i-button>
           </div>
@@ -80,7 +80,7 @@
                        <img src="../../assets/img/level_red.png" v-if="item % 2 == 0" style="margin:0 5px">
                        <img src="../../assets/img/level_yellow.png" v-else-if="item % 3 == 0" style="margin:0 5px">
                        <img src="../../assets/img/level_blue.png" v-else style="margin:0 5px">
-                       673
+                       67{{item}}
                    </div>
                    <div class="content">测试问题分类</div>
                  </div>
@@ -160,7 +160,7 @@
               @on-ok="add(true)"
               @on-cancel="add(false)">
               <Form  :model="addItem" :label-width="60">
-                  <Form-item label="输入框">
+                  <Form-item label="编号">
                       <i-input placeholder="请输入"></i-input>
                   </Form-item>
                   <FormItem label="问题分类">
@@ -410,6 +410,7 @@ export default {
     .quality-list .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
     .quality-list .left .filterform .list{text-align: left;}
     .quality-list .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 16px;font-weight: 400;float: left;}
+    .quality-list .left .filterform .list .title img{vertical-align: middle}
     .quality-list .left .saibutton{margin-top: 10px;float: right;}
     .quality-list .left .tree{text-align: left;}
     .quality-list .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row}
@@ -430,12 +431,12 @@ export default {
     .quality-list .right .body .list .top .content {width: calc(100% - 70px);text-align: left;height: 30px;line-height: 30px;display: inline-block}
     .quality-list .right .body .list .bottom{padding-left: 70px;}
     .quality-list .right .body .list .bottom .line {width: calc(calc(100% - 270px) / 5);display: inline-block;vertical-align: top;}
-    .quality-list .right .body .list .bottom .line img {max-width:14px;margin-right:5px}
+    .quality-list .right .body .list .bottom .line img {max-width:14px;margin-right:5px;vertical-align: middle}
     .quality-list .right .body .list .bottom .show-fzr {width: 200px;display: inline-block;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
-    .quality-list .right .body .list .bottom .show-fzr img{max-width:18px;margin:0 5px}
+    .quality-list .right .body .list .bottom .show-fzr img{max-width:18px;margin:0 5px;vertical-align: middle}
     .quality-list .right .body .list .do {width: 140px;float: right;height: 80px;display: flex;justify-content: center;align-items: center;margin-top: -40px;}
     .quality-list .right .body .list .do .show-do {margin:0 5px}
-    .quality-list .right .body .list .do .show-do img {max-width:16px}
+    .quality-list .right .body .list .do .show-do img {max-width:16px;cursor: pointer;}
     .quality-list .right .page {float: right;margin-top: 10px;padding-right: 20px;margin-bottom: 5px}
 
 

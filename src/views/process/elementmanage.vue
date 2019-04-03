@@ -1,12 +1,17 @@
 <template>
   <div class="manage" ref="box">
+      <div style="position: absolute;right:40px;top:-40px;" >
+          <img src="../../assets/img/print.png" style="margin-right:20px">
+          <img src="../../assets/img/share.png">
+      </div>
       <div class="left">
           <div class="all-title">
-                <span>构件筛选</span>
-                <span class="title-icon" >
-                    <img src="../../assets/img/menu.svg" alt="" ref="img">
-                </span>
-            </div>
+              构件筛选
+              <img src="../../assets/img/zhankai.png" style="float:right;padding-top:20px;cursor:pointer;">
+              <div class="title-icon">
+                  <Icon type="android-funnel"></Icon>
+              </div>
+          </div>
             <div class="filterform">
               <div class="list">
                   <div class="title">
@@ -28,7 +33,7 @@
               </div>
               <div class="list">
                   <div class="title">
-                      <img src="../../assets/img/icon_kongjian.png" alt=""  style="max-width:15px;margin-right:10px">
+                      <img src="../../assets/img/danwei.png" alt=""  style="max-width:15px;margin-right:10px">
                       <span>构件编号</span>
                   </div>
                   <i-select :model.sync="model1">
@@ -218,11 +223,10 @@ export default {
 }
 </script>
 <style scoped>
-    .manage {padding: 22px;background-color: #dae3ef;height: 100%;}
+    .manage {padding: 22px;background-color: #dae3ef;height: 100%;position: relative}
     .manage .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;}
     .manage .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
     .manage .left .all-title .title-icon {height: 70px;line-height: 70px;float: right;}
-    .manage .left .all-title .title-icon img {margin-left: 12px;height: 25px;transform: rotateY(180deg);cursor: pointer}
     .manage .left .filterform .list{text-align: left;}
     .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 15px;font-weight: 400;float: left;}
     .manage .left .saibutton{margin-top: 10px;float: right;}
