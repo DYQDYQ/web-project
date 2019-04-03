@@ -24,7 +24,7 @@ module.exports = {
                 target:'http://192.168.0.191:9000/'
             },
             '/api':{
-                target: 'http://test.cocc.bimsheng.com',
+                target: 'http://192.168.0.191:9000',
                 pathRewrite: {
                     '^/api': ''
                 }

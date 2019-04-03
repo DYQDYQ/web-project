@@ -1,15 +1,14 @@
 <template>
     <div class="filemanage">
-<!--     <div class="header-v2">
-        <div class="header-bg-v2">
-            <span class="title-v2 line_height32">资料管理</span>
-            <a href="/task/ziliao/gatherAll/" target="_blank"><div class="tuzhi-jump-btn">图纸汇总</div></a>
-            <a href="/task/ziliao/addFile/" target="_blank"><div class="tuzhi-jump-btn">新增</div></a>
+        <div class="header-v2">
+                <a class="file-a-jump" href="#" target="_blank"><div class="tuzhi-jump-btn">资料检索</div></a>
+                <a class="file-a-jump" href="#" target="_blank"><div class="tuzhi-jump-btn">图纸汇总</div></a>
+                <a class="file-a-jump" href="#" target="_blank"><div class="tuzhi-jump-btn">新增</div></a>
+
         </div>
-    </div>
-    <a class="file-a-jump" href="/task/ziliao/information/" target="_blank"><div class="tuzhi-jump-btn">资料检索</div></a>
-    <div id="elfinder"></div>
-    <a download="" href=""  id="downhref" target="_blank"></a> -->
+       
+        <div id="elfinder"></div>
+        <a download="" href=""  id="downhref" target="_blank"></a>
     <!-- <input type="hidden" id="startPathHash" value="{{startPathHash}}" /> -->
 
 
@@ -115,7 +114,7 @@
         },
         mounted(){
             this.$nextTick(() => {
-                startfinder();
+                startfinder(process.env.NODE_ENV);
             })
         }
     }
@@ -132,8 +131,8 @@
         float: right;
         margin-left: 15px;
         color: #fff;
-        background-color: #d05354;
-        border-color: #d05354;
+        background-color: #3385ff;
+        border-color: #3385ff;
         border: 1px solid transparent;
         display: inline-block;
         margin-bottom: 0;
@@ -152,8 +151,16 @@
         border-radius: 4px;
         transform: translate3d(0,0,0);
         transition: color .2s linear,background-color .2s linear,border .2s linear;
+        width: 64px;
     }
-    #elfinder{  height: calc(100% - 76px)!important;  }
-    .file-a-jump{  position: absolute;  top: 80px;  right: 18px;  z-index: 100;  }
-    .file-a-jump>.tuzhi-jump-btn{  padding: 2px 7px;  }
+    #elfinder{  height: 100% !important;  }
+    .file-a-jump{  margin-left: 10px; }
+    .file-a-jump>.tuzhi-jump-btn{  padding: 2px 7px; margin-top: 6px; }
+    .elfinder-toolbar .elfinder-button-icon {color: #3385ff !important}
+    .elfinder-ltr .elfinder-navbar-icon {color: #3385ff !important}
+    .elfinder-toolbar {border: 1px solid #ccc }
+</style>
+<style scoped>
+    .filemanage {height: 100%;padding: 22px;background-color: #dae3ef;}
+    .filemanage .header-v2 {position: absolute;z-index: 9999;right: 32px}
 </style>
