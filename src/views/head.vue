@@ -1,16 +1,16 @@
 <template>
-  <div class="head">
-    <div class="title">
+  <div class="new-head">
+    <div class="head-title">
        1 
     </div>
-    <div class="menu">
+    <div class="head-menu">
         <div @click="changeroute(item)" v-for="item in menulist" class="item" :class="item.active ? 'itemactive' : ''">
             <img :src="item.icon">
             <div>{{item.title}}</div>
         </div>
     </div>
-    <div class="message">4</div>
-    <div class="user">3</div>
+    <div class="head-message">4</div>
+    <div class="head-user">3</div>
   </div>
 </template>
 <script>
@@ -83,24 +83,24 @@
     }
 </script>
 <style scoped>
-    .head {
+    .new-head {
         width: 100%;
         height: 100px;
         background-color: #3385ff;
         color: #ffffff;
     }
-    .title {
+    .head-title {
         width:300px;
         height: 100px;
         line-height: 100px;
         float: left;
     }
-    .menu {
+    .head-menu {
         height: 100px;
         line-height: 100px;
         float: left;
     }
-    .menu .item {
+    .head-menu .item {
         display: flex;
         width: 120px;
         border-right: 1px solid #f0f0f0;
@@ -112,27 +112,27 @@
         cursor:pointer;
 
     }
-    .menu .item div{
+    .head-menu .item div{
         width: 120px;
         height: 16px;
         line-height: 16px;
         margin-top: 10px;
 
     }
-    .menu .item img{
+    .head-menu .item img{
         display: block;
 
     }
-    .menu .itemactive {
+    .head-menu .itemactive {
         background-color: #418DE9;
     }
-    .user {
+    .head-user {
         width: 190px;
         height: 100px;
         line-height: 100px;
         float: right;
     }
-    .message {
+    .head-message {
         width: 120px;
         height: 100px;
         line-height: 100px;
