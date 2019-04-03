@@ -15,7 +15,7 @@
         <div class="file">
             <div class="head">管理文件</div>
             <div class="body" v-for="item in filelist"><Icon type="ios-folder"></Icon><span>{{item.name}}</span><span>{{item.value}}</span></div>
-            
+
         </div>
         <div class="componentlist">
             <div class="head">构件列表</div>

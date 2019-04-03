@@ -32,7 +32,8 @@ export default {
         process:{
             title : {
                 text: '进度统计',
-                x:'left'
+                x:'10',
+                top:'10'
             },
             tooltip : {
                 trigger: 'item',
@@ -40,11 +41,30 @@ export default {
             },
             legend: {
                 orient: 'vertical',
-                top: '30px',
-                left: 'left',
+                top: '40px',
+                left: '10',
                 data: ['现场存储','已安装','未生产','生产中','厂内存储']
             },
             series : [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '55%',
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: '{c}'
+                        },
+                    },
+                    center: ['50%', '60%'],
+                    data:[
+                        {value:157, name:'现场存储'},
+                        {value:59, name:'已安装'},
+                        {value:127, name:'未生产'},
+                        {value:108, name:'生产中'},
+                        {value:451, name:'厂内存储'}
+                    ],
+                },
                 {
                     name: '访问来源',
                     type: 'pie',
@@ -64,19 +84,24 @@ export default {
                             shadowColor: 'rgba(0, 0, 0, 0.5)'
                         }
                     }
-                }
-            ]
+                },
+            ],
+            color: ['#534BFB', '#B14BFD', '#FD9C34', '#DB3D6E', '#5493F9']
         },
         safe:{
             title : {
                 text: '安全问题',
-                x:'left'
+                x:'10',
+                top:'10'
             },
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"
             },
             legend: {
+                itemWidth:10,
+                itemHeight:10,
+                itemGap:15,
                 orient: 'horizontal',
                 bottom: '10px',
                 data:['检疫办公','报关增税','入场现场','海关B1-6'],
@@ -88,7 +113,7 @@ export default {
                 {
                     name:'安全问题',
                     type:'pie',
-                    radius: ['60%', '70%'],
+                    radius: ['50%', '55%'],
                     avoidLabelOverlap: false,
                     label: {
                         normal: {
@@ -115,18 +140,23 @@ export default {
                         {value:556, name:'海关B1-6'},
                     ]
                 }
-            ]
+            ],
+            color: ['#3B78E3', '#E8A7E9', '#FAA53E', '#FC6EAB']
         },
         quality:{
             title : {
                 text: '质量问题',
-                x:'left'
+                x:'10',
+                top:'10'
             },
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"
             },
             legend: {
+                itemWidth:10,
+                itemHeight:10,
+                itemGap:15,
                 orient: 'horizontal',
                 bottom: '10px',
                 data:['检疫办公','报关增税','入场现场','海关B1-6']
@@ -135,7 +165,7 @@ export default {
                 {
                     name:'质量问题',
                     type:'pie',
-                    radius: ['60%', '70%'],
+                    radius: ['50%', '55%'],
                     avoidLabelOverlap: false,
                     label: {
                         normal: {
@@ -162,7 +192,8 @@ export default {
                         {value:556, name:'海关B1-6'},
                     ]
                 }
-            ]
+            ],
+            color: ['#3B78E3', '#E8A7E9', '#FAA53E', '#FC6EAB']
         },
     }
   }

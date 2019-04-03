@@ -2,10 +2,11 @@
   <div class="quality-list">
       <div class="left">
         <div class="all-title">
-          流程筛选
-          <div class="title-icon">
-            <Icon type="android-funnel"></Icon>
-          </div>
+            流程筛选
+            <img src="../../assets/img/zhankai.png" style="float:right;padding-top:20px">
+            <div class="title-icon">
+                <Icon type="android-funnel"></Icon>
+            </div>
         </div>
         <div class="tree">
           <Tree :data="treedata" show-checkbox></Tree>
@@ -13,7 +14,8 @@
         <div class="filterform">
           <div class="list">
               <div class="title">
-                优先级
+                <img src="../../assets/img/levels.png" alt="" style="width:17px">
+                  优先级
               </div>
               <div class="filterlist">
                 <div>严重</div>
@@ -23,6 +25,7 @@
           </div>
           <div class="list">
               <div class="title">
+                  <img src="../../assets/img/peoples.png" alt="" style="width:18px">
                 负责方
               </div>
               <i-select :model.sync="model1" style="width:200px">
@@ -31,7 +34,8 @@
           </div>
           <div class="list">
               <div class="title">
-                发起人
+                  <img src="../../assets/img/people.png" alt="" style="width:13px">
+                  发起人
               </div>
               <i-select :model.sync="model1" style="width:200px">
                   <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
@@ -39,35 +43,37 @@
           </div>
           <div class="list">
               <div class="title">
+                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
                 创建时间
               </div>
-               <Date-picker type="date" placeholder="创建时间" style="width: 200px"></Date-picker>        
+              <Date-picker type="date" placeholder="创建时间" style="width: 200px"></Date-picker>
           </div>
           <div class="list">
               <div class="title">
+                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
                 更新时间
               </div>
-               <Date-picker type="date" placeholder="更新时间" style="width: 200px"></Date-picker>        
+              <Date-picker type="date" placeholder="更新时间" style="width: 200px"></Date-picker>
           </div>
           <div class="list">
               <div class="title">
+                  <img src="../../assets/img/time2.png" alt="" style="width:16px">
                 截止时间
               </div>
-               <Date-picker type="date" placeholder="截止时间" style="width: 200px"></Date-picker>        
+              <Date-picker type="date" placeholder="截止时间" style="width: 200px"></Date-picker>
           </div>
         </div>
           <i-button style="float: right;margin-top: 20px;margin-left: 10px">重置</i-button>
           <i-button type="primary" style="float: right;margin-top: 20px;">确认</i-button>
-          
-        
       </div>
       <div class="right">
-        <div class="head">
-          <div class="title">构件查询(10)</div>
-          <div class="lookfor"><Input search placeholder="关键词查询" /></div>
-          <i-button type="primary" @click="newitem()">新增</i-button>
-        </div>
-        <div class="body">
+          <div class="head">
+              <div class="title">构件查询(10)</div>
+              <div class="paixu"><img src="../../assets/img/shaixuan.png">排序</div>
+              <div class="lookfor"><Input search placeholder="关键词查询" /></div>
+              <i-button type="primary" @click="newitem()">新增</i-button>
+          </div>
+          <div class="body">
             <div class="list" v-for="item in 7">
                  <div class="top">
                    <div class="idname">673</div>
@@ -86,15 +92,10 @@
                     <div class="show-do" @click="dothing(item)">删除</div>
                  </div>
            </div>
-
-           
         </div>
-        <Page class="page" :total="1" show-elevator></Page>
-
-
+          <Page class="page" :total="1" show-elevator></Page>
       </div>
-
-    <div class="model">
+      <div class="model">
           <Modal
               v-model="showgou"
               title="事宜处理"
@@ -191,7 +192,6 @@
             
           </Modal>
         </div>
-
   </div>
 </template>
 
@@ -403,7 +403,7 @@ export default {
     .quality-list .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;overflow-y: auto;}
     .quality-list .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
     .quality-list .left .filterform .list{text-align: left;}
-    .quality-list .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 17px;font-weight: 400;float: left;}
+    .quality-list .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 16px;font-weight: 400;float: left;}
     .quality-list .left .saibutton{margin-top: 10px;float: right;}
     .quality-list .left .tree{text-align: left;}
     .quality-list .left .filterform .filterlist {width: 100%;display: flex;height:30px;line-height: 30px;flex-direction: row }
@@ -413,7 +413,8 @@ export default {
     .quality-list .right{width: calc(100% - 240px);float: right;height: 100%;background-color: #ffffff;font-size: 14px}
     .quality-list .right .head{height: 60px;text-align:left;padding: 0px 20px;background-color: #ffffff}
     .quality-list .right .head .title{display: inline-block;font-size: 18px;font-weight: 600;line-height: 60px;height: 60px;}
-    .quality-list .right .head .lookfor {width: 200px;display: inline-block;margin-left: 50px;}
+    .quality-list .right .head .paixu {display:inline-block;width:60px;margin-left:50px}
+    .quality-list .right .head .lookfor {width: 200px;display: inline-block;margin-left: 100px;}
     .quality-list .right .head button {display: inline-block;float: right;margin-top: 10px}
     .quality-list .right .body {height:calc(100% - 110px);overflow-y: auto;background-color: #ffffff}
     .quality-list .right .body .list{height: 80px;padding: 10px 20px;}

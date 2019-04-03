@@ -19,8 +19,11 @@
         <div class="fromlist">
           <i-form :model="processItem" :label-width="60">
                 <Form-item label="选择状态">
-                  <i-select :model.sync="processItem.state" placeholder="请选择">
+                  <i-select :model.sync="processItem.state" placeholder="请选择状态">
                   </i-select>
+                </Form-item>
+                <Form-item label="录入时间">
+                    <date-picker :model.sync="processItem.time" type="date" style="float:left" placeholder="选择时间"></date-picker>
                 </Form-item>
                 <Form-item label="上传文件">
                     <Upload action="#" style="float: left;">
@@ -30,8 +33,8 @@
                 <Form-item label="验收备注">
                     <i-input :value.sync="processItem.beizhu" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></i-input>
                 </Form-item>
-                <Form-item label="选择仓位">
-                  <i-select :model.sync="processItem.cangwei" placeholder="请选择">
+                <Form-item label="场地仓位">
+                  <i-select :model.sync="processItem.cangwei" placeholder="请选择场地">
                   </i-select>
                 </Form-item>
                 <Form-item>
@@ -94,7 +97,7 @@ export default {
     .left {width: 780px;height: 100%;float: left;background-color: #ffffff;padding: 0px 20px;}
     .right {width: calc(100% - 780px);height: 100%;float: right;}
     .left .head {height: 70px;line-height: 70px;border-bottom: 1px solid #e8eaec}
-    .left .head .title {font-size: 18px;float: left;}
+    .left .head .title {font-size: 18px;float: left;font-weight: bold}
     .left .head .down {font-size: 14px;float: right;margin-top: 15px;}
     .chose {height: 70px;line-height: 70px;padding: 10px 10px 0px 10px;}
     .chose .gou,.in {float: left;margin-right: 10px;font-size: 16px;}

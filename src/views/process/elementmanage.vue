@@ -1,67 +1,65 @@
 <template>
   <div class="manage" ref="box">
       <div class="left">
-        <div class="all-title">
-          构件筛选
-          <div class="title-icon">
-            <Icon type="android-funnel"></Icon>
-          </div>
-        </div>
-        <div class="filterform">
-          <div class="list">
-              <div class="title">
-                选择类型状态
+          <div class="all-title">
+                <span>构件筛选</span>
+                <span class="title-icon" >
+                    <img src="../../assets/img/menu.svg" alt="" ref="img">
+                </span>
+            </div>
+            <div class="filterform">
+              <div class="list">
+                  <div class="title">
+                      <img src="../../assets/img/icon_status.png" alt="" style="max-width:15px;margin-right:10px">
+                      <span>选择类型状态</span>
+                  </div>
+                  <i-select :model.sync="model1">
+                      <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
+                  </i-select>
               </div>
-              <i-select :model.sync="model1">
-                  <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
-              </i-select>         
-          </div>
-          <div class="list">
-              <div class="title">
-                选择空间
+              <div class="list">
+                  <div class="title">
+                      <img src="../../assets/img/icon_kongjian.png" alt=""  style="max-width:15px;margin-right:10px">
+                      <span>选择空间</span>
+                  </div>
+                  <i-select :model.sync="model1">
+                      <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
+                  </i-select>
               </div>
-              <i-select :model.sync="model1">
-                  <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
-              </i-select>         
-          </div>
-          <div class="list">
-              <div class="title">
-                构件编号
+              <div class="list">
+                  <div class="title">
+                      <img src="../../assets/img/icon_kongjian.png" alt=""  style="max-width:15px;margin-right:10px">
+                      <span>构件编号</span>
+                  </div>
+                  <i-select :model.sync="model1">
+                      <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
+                  </i-select>
               </div>
-              <i-select :model.sync="model1">
-                  <i-option v-for="item in sailist" :value="item.value">{{ item.label }}</i-option>
-              </i-select>         
-          </div>
-        </div>
-          <i-button class="saibutton" type="primary">筛选</i-button>
-        
+            </div>
+              <i-button class="saibutton" type="primary">筛选</i-button>
       </div>
       <div class="right">
-<!--         <div class="head">
-          <div>构件查询</div>
-          <div>导出</div>
-          <div>转出</div>
-        </div> -->
         <div class="body">
            <i-table border :columns="listline" :data="goulist" :height="tableheight"></i-table>
            <Page class="page" :total="1" show-elevator></Page>
         </div>
-        
-
-
       </div>
-
-    <div>
+      <div>
           <Modal
               v-model="showgou"
               title="构件追踪过程"
               width="700"
               >
-              <div class="model-head"><span class="line1">构件编号</span>【地下一框地下结构混凝土】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line1">类型</span>【地下结构混凝土】</div>
+              <div class="model-head">
+                  <span class="line1"><i-icon type="collection_fill" />构件编号</span>
+                  【地下一框地下结构混凝土】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="line1">类型</span>
+                  【地下结构混凝土】
+              </div>
               <Steps :current="3" direction="vertical">
                   <Step v-for="item in 4">
                       <Card>
-                        <p slot="title" style="font-size: 17px">
+                        <p slot="title" style="font-size: 16px">
                             支撑拆除
                         </p>
                         <i-button type="primary" slot="extra" size="small">修改记录</i-button>
@@ -76,7 +74,7 @@
                   </Step>
               </Steps>
           </Modal>
-        </div>
+      </div>
   </div>
 </template>
 
@@ -223,20 +221,25 @@ export default {
     .manage {padding: 22px;background-color: #dae3ef;height: 100%;}
     .manage .left {width: 240px;float: left;height: 100%;background-color: #ffffff;padding: 0px 20px;}
     .manage .left .all-title{height: 60px;line-height: 60px;font-size: 18px;font-weight: 600;text-align: left;}
+    .manage .left .all-title .title-icon {height: 70px;line-height: 70px;float: right;}
+    .manage .left .all-title .title-icon img {margin-left: 12px;height: 25px;transform: rotateY(180deg);cursor: pointer}
     .manage .left .filterform .list{text-align: left;}
-    .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 17px;font-weight: 400;float: left;}
+    .manage .left .filterform .list .title{height: 40px;line-height: 40px;font-size: 15px;font-weight: 400;float: left;}
     .manage .left .saibutton{margin-top: 10px;float: right;}
     .manage .right {width: calc(100% - 240px);height: 100%;background-color: #ffffff;float: right;}
     .manage .right .body{width: 100%;height: 100%;}
     .manage .right .body .page{float: right;margin-top: 10px;padding-right: 20px}
-    .model-head{font-size: 16px;}
-    .model-head .line1 {font-weight: 600;}
+    .model-head{font-size: 15px;padding-left:40px}
+    .model-head .line1 {font-weight: 900;}
     .model-content {height: 40px;}
     .model-content div {width: 50%;float: left;height:20px;line-height: 20px;}
     .model-content div .model-content-title {font-weight: 600;}
+    .title-icon img {margin-left: 12px;height: 25px;transform: rotateY(180deg);cursor: pointer}
+
 </style>
 <style>
   .manage .right .body .ivu-table th {background-color: #cddbf1;font-size: 16px;}
   .manage .right .body .ivu-table .ivu-table-tbody .ivu-table-row:nth-child(even) td {background-color: #f3f7ff}
   .ivu-modal-header-inner {font-size: 18px;font-weight: 600}
+  .ivu-modal-body {padding:16px 45px 16px 36px}
 </style>
